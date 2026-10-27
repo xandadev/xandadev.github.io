@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1WMK8X3C6H"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-1WMK8X3C6H');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visor | XandA</title>
+    <meta name="description" content="Visor de XandA: simulador responsivo para probar cómo se ve una página en distintos dispositivos (celulares, tablets, laptops, relojes y más).">
+    <meta name="author" content="XandA, Asiel Jiménez">
+    <meta name="robots" content="index, follow">
+    <meta name="theme-color" content="#17133A">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Unbounded:wght@400;500;600&display=swap" rel="stylesheet">
+    <script>document.documentElement.classList.add("js");</script>
+
+    <!-- Favicon -->
+    <link rel="icon" href="/src/assets/images/icons/favicon.ico">
+    <link rel="icon" href="/src/assets/images/icons/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="/src/assets/images/icons/favicon.ico" type="image/x-icon">
+
+    <!-- Apple Touch Icon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/src/assets/images/apple-touch-icon-180x180.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/src/assets/images/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/src/assets/images/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/src/assets/images/apple-touch-icon-76x76.png">
+
+    <!-- Iconos para Android -->
+    <link rel="icon" sizes="192x192" href="/src/assets/images/android-chrome-192x192.png">
+    <link rel="icon" sizes="512x512" href="/src/assets/images/android-chrome-512x512.png">
+
+    <!-- Otros formatos -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/src/assets/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/src/assets/images/favicon-16x16.png">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../assets/styles/visor.css">
+</head>
+<body>
+
+    <a class="skip" href="#appRoot">Saltar al contenido</a>
+
+    <header class="site-header" id="top">
+        <div class="wrap header-inner">
+            <a class="brand" href="../../index.html#top" aria-label="XandA, inicio">
+                <img src="../assets/images/xanda-logo.svg" alt="" width="34" height="34">
+                <span>XandA</span>
+            </a>
+            <nav class="nav" id="nav" aria-label="Principal">
+                <a href="../../index.html#taller">Herramientas</a>
+                <a href="../../index.html#descargas">Descargas</a>
+                <a href="../../index.html#principios">Plataforma</a>
+                <a href="../../index.html#preguntas">Preguntas</a>
+            </nav>
+            <a class="btn btn-sm btn-primary header-cta" href="../../index.html#descargas">Descargar</a>
+            <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="nav" aria-label="Abrir menú">
+                <span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <div class="app" id="appRoot">
+
+      <!-- Fondo oscuro de la hoja inferior (solo visible/activo en móvil) -->
+      <div class="sidebar-backdrop" id="sidebarBackdrop"></div>
+
+      <!-- ============ SIDEBAR ============ -->
+      <aside class="sidebar">
+        <!-- Asa para abrir/cerrar el panel como hoja inferior en móvil (oculta en escritorio) -->
+        <button class="sidebar-handle" id="sidebarHandle" type="button" aria-expanded="false">
+          <span class="handle-bar"></span>
+          <span class="handle-label-row">
+            <span>Dispositivos y ajustes</span>
+            <svg class="handle-chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
+          </span>
+        </button>
+
+        <div class="tool-title">
+          <h1>Visor</h1>
+          <p>Simulador responsivo</p>
+        </div>
+
+        <div class="url-block">
+          <label class="field-label">Sitio a probar</label>
+          <div class="url-row">
+            <input id="urlInput" type="text" placeholder="tusitio.com" value="">
+            <button id="loadBtn">Cargar</button>
+          </div>
+          <p class="url-hint">Algunos sitios impiden mostrarse dentro de otra página <span>(X-Frame-Options)</span>. Si la pantalla queda en blanco, prueba con otro dominio.</p>
+        </div>
+
+        <div class="custom-block">
+          <label class="field-label">Tamaño personalizado</label>
+          <div class="custom-row">
+            <input type="number" id="customW" placeholder="Ancho" min="120" max="3840" value="1024">
+            <span class="x">×</span>
+            <input type="number" id="customH" placeholder="Alto" min="120" max="2400" value="768">
+          </div>
+          <button class="custom-apply" id="customApply">Usar este tamaño</button>
+        </div>
+
+        <div class="device-block">
+          <label class="field-label">Dispositivos</label>
+
+          <div class="search-row">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <input type="text" id="searchInput" placeholder="Buscar dispositivo o marca…">
+          </div>
+
+          <div class="cat-tabs-wrap">
+            <button class="cat-nav left" id="catNavLeft">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+            </button>
+            <div class="cat-tabs" id="catTabs"></div>
+            <button class="cat-nav right" id="catNavRight">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+            </button>
+          </div>
+
+          <div class="pinned-custom" id="pinnedCustom"></div>
+          <div class="device-list" id="deviceList"></div>
+        </div>
+
+        <div class="sidebar-footer">
+          El marco se ajusta automáticamente al tamaño de tu ventana.<br>
+        </div>
+      </aside>
+
+      <!-- ============ STAGE ============ -->
+      <main class="stage">
+        <div class="topbar">
+          <div class="info">
+            <h2 id="deviceName">—</h2>
+            <span id="deviceDims">—</span>
+          </div>
+          <div class="actions">
+            <button class="chip-btn" id="openTabBtn" style="display:none">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              Abrir
+            </button>
+            <button class="chip-btn" id="rotateBtn" style="display:none">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 2.1l4 4-4 4"/><path d="M3 12.2v-2a4 4 0 0 1 4-4h12.8M7 21.9l-4-4 4-4"/><path d="M21 11.8v2a4 4 0 0 1-4 4H4.2"/></svg>
+              Rotar
+            </button>
+            <button class="chip-btn" id="fullscreenBtn">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3H5a2 2 0 0 0-2 2v3"/><path d="M21 8V5a2 2 0 0 0-2-2h-3"/><path d="M3 16v3a2 2 0 0 0 2 2h3"/><path d="M16 21h3a2 2 0 0 0 2-2v-3"/></svg>
+              <span id="fullscreenLabel">Enfocar</span>
+            </button>
+            <div class="zoom-group">
+              <button id="zoomOut">−</button>
+              <span class="val" id="zoomVal">100%</span>
+              <button id="zoomIn">+</button>
+            </div>
+          </div>
+        </div>
+
+        <div class="frame-wrap">
+          <div id="stageInner">
+            <div class="glow" id="glowEl"></div>
+            <div id="frameSlot"></div>
+          </div>
+        </div>
+      </main>
+
+    </div>
+
+    <footer class="footer">
+        <div class="wrap footer-grid">
+            <div class="footer-brand">
+                <a class="brand" href="#top" aria-label="XandA, volver arriba">
+                    <img src="../assets/images/xanda-logo.svg" alt="" width="34" height="34">
+                    <span>XandA</span>
+                </a>
+                <p>Herramientas gratuitas para crear, programar y probar.</p>
+            </div>
+            <nav aria-label="Herramientas">
+                <h3>Herramientas</h3>
+                <ul>
+                    <li><a href="../../index.html#taller" data-pick="lumina">Lúmina</a></li>
+                    <li><a href="../../index.html#taller" data-pick="nebula">Nébula</a></li>
+                    <li><a href="visor.html">Visor</a></li>
+                    <li><a href="convertidor.html">Convertidor</a></li>
+                </ul>
+            </nav>
+            <nav aria-label="Plataforma">
+                <h3>Plataforma</h3>
+                <ul>
+                    <li><a href="../../index.html#descargas">Descargas</a></li>
+                    <li><a href="../../index.html#principios">Qué esperar</a></li>
+                    <li><a href="../../index.html#preguntas">Preguntas frecuentes</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="wrap footer-base">
+            <p>© <span id="year">2026</span> XandA</p>
+        </div>
+    </footer>
+
+    <script src="../assets/scripts/visor.js"></script>
+</body>
+</html>

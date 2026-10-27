@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-1WMK8X3C6H"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+
+        gtag('config', 'G-1WMK8X3C6H');
+    </script>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Convertidor | XandA</title>
+    <meta name="date" content="2026-10-05">
+    <link rel="canonical" href="https://xandalibreria.github.io/src/pages/convertidor.html">
+    <meta name="theme-color" content="#17133A">
+    <link rel="alternate" hreflang="es" href="https://xandalibreria.github.io/src/pages/convertidor.html">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- SEO -->
+    <meta name="description" content="Lúmina es una plataforma para comprimir, convertir y optimizar imágenes fácilmente. Reduce el tamaño de tus archivos y conviértelos entre formatos como JPG, PNG, WebP y AVIF.">
+    <meta name="keywords" content="comprimir imágenes, compresor de imágenes, comprimir imágenes online, reducir tamaño de imágenes, optimizar imágenes, optimizador de imágenes, convertir imágenes, conversor de imágenes, convertir JPG a PNG, convertir PNG a JPG, convertir JPG a WebP, convertir PNG a WebP, convertir imágenes a WebP, convertir imágenes a AVIF, JPG, PNG, WebP, AVIF, comprimir JPG, comprimir PNG, comprimir WebP, compresión de imágenes online, herramientas para imágenes, Lúmina">
+    <meta name="author" content="XandA, Asiel Jiménez">
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
+    <meta name="subject" content="Subject">
+    <meta name="rating" content="General">
+
+    <!-- Open Graph para Redes Sociales -->
+    <meta property="og:title" content="Convertidor | XandA">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://xandalibreria.github.io/src/pages/convertidor.html">
+    <meta property="og:description" content="Lúmina es una plataforma para comprimir, convertir y optimizar imágenes fácilmente. Reduce el tamaño de tus archivos y conviértelos entre formatos como JPG, PNG, WebP y AVIF.">
+    <meta property="og:locale" content="es_MX">
+    <meta property="og:site_name" content="Convertidor | XandA">
+    <meta property="og:image" content="../assets/images/">
+
+    <!-- Twitter Cards -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Convertidor | XandA">
+    <meta name="twitter:description" content="Lúmina es una plataforma para comprimir, convertir y optimizar imágenes fácilmente. Reduce el tamaño de tus archivos y conviértelos entre formatos como JPG, PNG, WebP y AVIF.">
+    <meta name="twitter:site" content="">
+    <meta name="twitter:image" content="../assets/images/">
+    <meta property="og:image:alt" content="Convertidor | XandA">
+
+    <!-- Apple Touch Icon -->
+    <link rel="apple-touch-icon" sizes="180x180" href="/src/assets/images/apple-touch-icon-180x180.png">
+    <link rel="apple-touch-icon" sizes="152x152" href="/src/assets/images/apple-touch-icon-152x152.png">
+    <link rel="apple-touch-icon" sizes="120x120" href="/src/assets/images/apple-touch-icon-120x120.png">
+    <link rel="apple-touch-icon" sizes="76x76" href="/src/assets/images/apple-touch-icon-76x76.png">
+
+    <!-- Iconos para Android -->
+    <link rel="icon" sizes="192x192" href="/src/assets/images/android-chrome-192x192.png">
+    <link rel="icon" sizes="512x512" href="/src/assets/images/android-chrome-512x512.png">
+
+    <!-- Otros formatos -->
+    <link rel="icon" type="image/png" sizes="32x32" href="/src/assets/images/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="/src/assets/images/favicon-16x16.png">
+
+    <!-- Fuentes (identidad visual XandA) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Instrument+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Unbounded:wght@400;500;600&display=swap" rel="stylesheet">
+    <script>document.documentElement.classList.add("js");</script>
+
+    <!-- JSZip para descarga en lote -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.10.1/jszip.min.js"></script>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="../assets/styles/convertidor.css">
+</head>
+<body>
+
+    <a class="skip" href="#contenido">Saltar al contenido</a>
+
+    <header class="site-header" id="top">
+        <div class="wrap header-inner">
+            <a class="brand" href="../../index.html#top" aria-label="XandA, inicio">
+                <img src="../assets/images/xanda-logo.svg" alt="" width="34" height="34">
+                <span>XandA</span>
+            </a>
+            <nav class="nav" id="nav" aria-label="Principal">
+                <a href="../../index.html#taller">Herramientas</a>
+                <a href="../../index.html#descargas">Descargas</a>
+                <a href="../../index.html#principios">Plataforma</a>
+                <a href="../../index.html#preguntas">Preguntas</a>
+            </nav>
+            <a class="btn btn-sm btn-primary header-cta" href="../../index.html#descargas">Descargar</a>
+            <button class="menu-btn" id="menuBtn" type="button" aria-expanded="false" aria-controls="nav" aria-label="Abrir menú">
+                <span></span><span></span>
+            </button>
+        </div>
+    </header>
+
+    <main id="contenido">
+        <div class="wrap">
+            <!-- intro -->
+            <div class="intro reveal in">
+                <span class="eyebrow"><span class="dot"></span>Conversor &amp; compresor</span>
+                <h1>Cambia el formato de tus imágenes <em>sin perder calidad de más</em></h1>
+                <p>Arrastra tus archivos, elige el formato de salida y ajusta la compresión si quieres aligerar el peso. Todo ocurre en tu navegador — tus imágenes no se suben a ningún servidor.</p>
+                <div class="chip-row">
+                    <span class="fmt-chip">PNG</span>
+                    <span class="fmt-chip">JPG</span>
+                    <span class="fmt-chip">WEBP</span>
+                    <span class="fmt-chip">AVIF*</span>
+                    <span class="fmt-chip">BMP</span>
+                    <span class="fmt-chip">ICO</span>
+                    <span class="fmt-chip">GIF → estático</span>
+                </div>
+            </div>
+
+            <!-- dropzone -->
+            <div class="dropzone-section reveal in">
+                <div class="dropzone" id="dropzone">
+                    <div class="shifter" aria-hidden="true">
+                        <div class="sq png">PNG</div>
+                        <div class="sq jpg">JPG</div>
+                        <div class="sq webp">WEBP</div>
+                        <div class="sq avif">AVIF</div>
+                    </div>
+                    <h2>Suelta tus imágenes aquí</h2>
+                    <p class="hint">o selecciónalas desde tu equipo — puedes soltar varias a la vez</p>
+                    <button class="browse-btn" id="browseBtn" type="button">Elegir archivos</button>
+                    <input type="file" id="fileInput" accept="image/*" multiple>
+                    <p class="dz-formats">Detecta automáticamente <b>PNG · JPG · WEBP · BMP · GIF · SVG · ICO</b> al soltarlas</p>
+                </div>
+            </div>
+
+            <!-- toolbar -->
+            <div class="toolbar reveal">
+                <h3>Tus archivos <span class="count" id="fileCount">0</span></h3>
+                <div class="toolbar-actions">
+                    <button class="btn btn-sm btn-danger-ghost" id="clearBtn" disabled>Vaciar lista</button>
+                    <button class="btn btn-sm btn-ghost" id="zipBtn" disabled>Descargar todo (.zip)</button>
+                    <button class="btn btn-sm btn-primary" id="convertAllBtn" disabled>Convertir todo</button>
+                </div>
+            </div>
+
+            <div class="global-controls reveal">
+                <div class="field" style="min-width:220px;">
+                    <label>Formato de salida para todos</label>
+                    <select class="target-select" id="globalFormat" style="padding:9px 12px;">
+                        <option value="__keep">Mantener el de cada archivo</option>
+                        <option value="image/png">PNG</option>
+                        <option value="image/jpeg">JPG</option>
+                        <option value="image/webp">WEBP</option>
+                    </select>
+                </div>
+                <div class="field" style="flex:1;">
+                    <label>Calidad <span class="val" id="qualityVal">80%</span></label>
+                    <input type="range" id="qualityRange" min="10" max="100" value="80">
+                </div>
+                <div class="field">
+                    <label>Tamaño</label>
+                    <div class="seg" id="scaleSeg">
+                        <button data-scale="1" class="active">100%</button>
+                        <button data-scale="0.75">75%</button>
+                        <button data-scale="0.5">50%</button>
+                        <button data-scale="0.25">25%</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="file-list" id="fileList"></div>
+            <p class="empty-state" id="emptyState">Aún no has soltado ninguna imagen — súbela arriba para empezar.</p>
+
+            <!-- stats -->
+            <div class="stats reveal" id="statsRow">
+                <div class="stat-card">
+                    <div class="n" id="statTotal">0</div>
+                    <div class="l">Imágenes cargadas</div>
+                </div>
+                <div class="stat-card">
+                    <div class="n" id="statDone">0</div>
+                    <div class="l">Convertidas</div>
+                </div>
+                <div class="stat-card accent">
+                    <div class="n" id="statSaved">0%</div>
+                    <div class="l">Peso ahorrado en promedio</div>
+                </div>
+            </div>
+
+            <!-- compare -->
+            <div class="compare-section reveal">
+                <div class="section-head">
+                    <div>
+                        <h2>Antes / después</h2>
+                        <p>Convierte una imagen y desliza para comparar el resultado con el original.</p>
+                    </div>
+                </div>
+                <div class="compare-box" id="compareBox">
+                    <div class="compare-empty" id="compareEmpty">Convierte una imagen para ver la comparación aquí</div>
+                </div>
+            </div>
+
+            <!-- guide -->
+            <div class="guide-section reveal">
+                <div class="section-head">
+                    <div>
+                        <h2>¿Qué formato conviene?</h2>
+                        <p>Una referencia rápida antes de elegir el destino.</p>
+                    </div>
+                </div>
+                <div class="guide-grid">
+                    <div class="guide-card">
+                        <span class="tag" style="background:linear-gradient(140deg,var(--violet-deep),var(--violet));">PNG</span>
+                        <p>Sin pérdida de calidad y con transparencia real. Ideal para logotipos, íconos y capturas con texto nítido.</p>
+                        <p class="best">Mejor para <b>gráficos y transparencias</b></p>
+                    </div>
+                    <div class="guide-card">
+                        <span class="tag" style="background:linear-gradient(140deg,var(--violet),var(--conv));">JPG</span>
+                        <p>Compresión con pérdida muy eficiente para fotografías. No admite transparencia.</p>
+                        <p class="best">Mejor para <b>fotos y fondos</b></p>
+                    </div>
+                    <div class="guide-card">
+                        <span class="tag" style="background:linear-gradient(140deg,var(--conv),#FFB1CC);">WEBP</span>
+                        <p>Calidad similar al JPG con archivos hasta 30% más ligeros, y admite transparencia.</p>
+                        <p class="best">Mejor para <b>uso web general</b></p>
+                    </div>
+                    <div class="guide-card">
+                        <span class="tag" style="background:linear-gradient(140deg,#C9A7FF,var(--violet));">AVIF</span>
+                        <p>El más compacto disponible hoy, aunque el soporte del navegador aún es variable.</p>
+                        <p class="best">Mejor para <b>máximo ahorro</b></p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="toast-wrap" id="toastWrap"></div>
+    </main>
+
+    <footer class="footer">
+        <div class="wrap footer-grid">
+            <div class="footer-brand">
+                <a class="brand" href="#top" aria-label="XandA, volver arriba">
+                    <img src="../assets/images/xanda-logo.svg" alt="" width="34" height="34">
+                    <span>XandA</span>
+                </a>
+                <p>Herramientas gratuitas para crear, programar y probar.</p>
+            </div>
+            <nav aria-label="Herramientas">
+                <h3>Herramientas</h3>
+                <ul>
+                    <li><a href="../../index.html#taller" data-pick="lumina">Lúmina</a></li>
+                    <li><a href="../../index.html#taller" data-pick="nebula">Nébula</a></li>
+                    <li><a href="visor.html">Visor</a></li>
+                    <li><a href="convertidor.html">Convertidor</a></li>
+                </ul>
+            </nav>
+            <nav aria-label="Plataforma">
+                <h3>Plataforma</h3>
+                <ul>
+                    <li><a href="../../index.html#descargas">Descargas</a></li>
+                    <li><a href="../../index.html#principios">Qué esperar</a></li>
+                    <li><a href="../../index.html#preguntas">Preguntas frecuentes</a></li>
+                </ul>
+            </nav>
+        </div>
+        <div class="wrap footer-base">
+            <p>© <span id="year">2026</span> XandA</p>
+        </div>
+    </footer>
+
+    <!-- SCRIPTS -->
+    <script src="../assets/scripts/convertidor.js" defer></script>
+</body>
+</html>
