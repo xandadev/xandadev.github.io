@@ -22,8 +22,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
 
     <!-- SEO -->
-    <meta name="description" content="Lúmina es una plataforma para comprimir, convertir y optimizar imágenes fácilmente. Reduce el tamaño de tus archivos y conviértelos entre formatos como JPG, PNG, WebP y AVIF.">
-    <meta name="keywords" content="comprimir imágenes, compresor de imágenes, comprimir imágenes online, reducir tamaño de imágenes, optimizar imágenes, optimizador de imágenes, convertir imágenes, conversor de imágenes, convertir JPG a PNG, convertir PNG a JPG, convertir JPG a WebP, convertir PNG a WebP, convertir imágenes a WebP, convertir imágenes a AVIF, JPG, PNG, WebP, AVIF, comprimir JPG, comprimir PNG, comprimir WebP, compresión de imágenes online, herramientas para imágenes, Lúmina">
+    <meta name="description" content="Lúmina es una plataforma para comprimir, convertir y optimizar imágenes fácilmente. Reduce el tamaño de tus archivos y conviértelos entre formatos como JPG, PNG, WebP y AVIF. También mejora y amplía imágenes con IA (Real-ESRGAN), sin subir archivos.">
+    <meta name="keywords" content="mejorar imágenes con IA, aumentar resolución, superresolución, Real-ESRGAN, comprimir imágenes, compresor de imágenes, comprimir imágenes online, reducir tamaño de imágenes, optimizar imágenes, optimizador de imágenes, convertir imágenes, conversor de imágenes, convertir JPG a PNG, convertir PNG a JPG, convertir JPG a WebP, convertir PNG a WebP, convertir imágenes a WebP, convertir imágenes a AVIF, JPG, PNG, WebP, AVIF, comprimir JPG, comprimir PNG, comprimir WebP, compresión de imágenes online, herramientas para imágenes, Lúmina">
     <meta name="author" content="XandA, Asiel Jiménez">
     <meta name="robots" content="index, follow">
     <meta name="googlebot" content="index, follow">
@@ -34,7 +34,7 @@
     <meta property="og:title" content="Convertidor | XandA">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://xandalibreria.github.io/src/pages/convertidor.html">
-    <meta property="og:description" content="Lúmina es una plataforma para comprimir, convertir y optimizar imágenes fácilmente. Reduce el tamaño de tus archivos y conviértelos entre formatos como JPG, PNG, WebP y AVIF.">
+    <meta property="og:description" content="Lúmina es una plataforma para comprimir, convertir y optimizar imágenes fácilmente. Reduce el tamaño de tus archivos y conviértelos entre formatos como JPG, PNG, WebP y AVIF. También mejora y amplía imágenes con IA (Real-ESRGAN), sin subir archivos.">
     <meta property="og:locale" content="es_MX">
     <meta property="og:site_name" content="Convertidor | XandA">
     <meta property="og:image" content="../assets/images/">
@@ -42,7 +42,7 @@
     <!-- Twitter Cards -->
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="Convertidor | XandA">
-    <meta name="twitter:description" content="Lúmina es una plataforma para comprimir, convertir y optimizar imágenes fácilmente. Reduce el tamaño de tus archivos y conviértelos entre formatos como JPG, PNG, WebP y AVIF.">
+    <meta name="twitter:description" content="Lúmina es una plataforma para comprimir, convertir y optimizar imágenes fácilmente. Reduce el tamaño de tus archivos y conviértelos entre formatos como JPG, PNG, WebP y AVIF. También mejora y amplía imágenes con IA (Real-ESRGAN), sin subir archivos.">
     <meta name="twitter:site" content="">
     <meta name="twitter:image" content="../assets/images/">
     <meta property="og:image:alt" content="Convertidor | XandA">
@@ -100,9 +100,9 @@
         <div class="wrap">
             <!-- intro -->
             <div class="intro reveal in">
-                <span class="eyebrow"><span class="dot"></span>Conversor &amp; compresor</span>
+                <span class="eyebrow"><span class="dot"></span>Conversor, compresor &amp; IA</span>
                 <h1>Cambia el formato de tus imágenes <em>sin perder calidad de más</em></h1>
-                <p>Arrastra tus archivos, elige el formato de salida y ajusta la compresión si quieres aligerar el peso. Todo ocurre en tu navegador — tus imágenes no se suben a ningún servidor.</p>
+                <p>Arrastra tus archivos, elige el formato de salida y ajusta la compresión si quieres aligerar el peso — o mejora y amplía una imagen con IA. Todo ocurre en tu navegador: tus imágenes no se suben a ningún servidor.</p>
                 <div class="chip-row">
                     <span class="fmt-chip">PNG</span>
                     <span class="fmt-chip">JPG</span>
@@ -111,9 +111,18 @@
                     <span class="fmt-chip">BMP</span>
                     <span class="fmt-chip">ICO</span>
                     <span class="fmt-chip">GIF → estático</span>
+                    <span class="fmt-chip">Mejora con IA</span>
                 </div>
             </div>
 
+
+            <!-- selector de herramienta -->
+            <div class="mode-switch" role="tablist" aria-label="Herramienta">
+                <button type="button" role="tab" id="tab-conv" data-mode="conv" aria-selected="true" aria-controls="panelConv" class="active">Convertir y comprimir</button>
+                <button type="button" role="tab" id="tab-enh" data-mode="enh" aria-selected="false" aria-controls="enh-panel">Mejorar con IA</button>
+            </div>
+
+            <div id="panelConv" role="tabpanel" aria-labelledby="tab-conv">
             <!-- dropzone -->
             <div class="dropzone-section reveal in">
                 <div class="dropzone" id="dropzone">
@@ -230,6 +239,178 @@
                 </div>
             </div>
 
+            </div><!-- /panelConv -->
+
+            <!-- ============ PANEL: MEJORAR CON IA ============ -->
+            <div id="enh-panel" role="tabpanel" aria-labelledby="tab-enh" hidden>
+                <div class="chip-row enh-chips">
+                    <span class="engine-chip" id="enh-engineChip" data-state="check" role="status"><i></i><span id="enh-engineText">Comprobando motor…</span></span>
+                    <span class="fmt-chip">Real-ESRGAN · 2× / 4×</span>
+                    <span class="fmt-chip">100 % local</span>
+                </div>
+                <!-- avisos -->
+                            <div class="notices" id="enh-notices" aria-live="polite"></div>
+
+                            <!-- dropzone -->
+                            <div class="dropzone-section" id="enh-dropSection">
+                                <div class="dropzone" id="enh-dropzone">
+                                    <div class="shifter" aria-hidden="true">
+                                        <div class="sq png">PNG</div>
+                                        <div class="sq jpg">JPG</div>
+                                        <div class="sq webp">WEBP</div>
+                                        <div class="sq avif">4×</div>
+                                    </div>
+                                    <h2>Suelta una imagen aquí</h2>
+                                    <p class="hint">o selecciónala desde tu equipo — se procesa una imagen a la vez</p>
+                                    <button class="browse-btn" id="enh-browseBtn" type="button">Elegir imagen</button>
+                                    <input type="file" id="enh-fileInput" accept="image/jpeg,image/png,image/webp">
+                                    <p class="dz-formats">Admite <b>JPG · PNG · WEBP</b> · tu archivo original nunca se modifica</p>
+                                </div>
+                            </div>
+
+                            <!-- espacio de trabajo -->
+                            <section class="workspace" id="enh-workspace" hidden>
+                                <div class="enh-grid">
+
+                                    <div class="card">
+                                        <div class="card-head">
+                                            <h3>Original</h3>
+                                            <button class="btn btn-sm btn-ghost" id="enh-resetBtn" type="button">Cambiar imagen</button>
+                                        </div>
+                                        <div class="orig-frame"><img id="enh-origPreview" alt="Vista previa de la imagen original"></div>
+                                        <p class="meta-line" id="enh-origMeta"></p>
+                                    </div>
+
+                                    <div class="card">
+                                        <div class="card-head"><h3>Ajustes</h3></div>
+
+                                        <div class="field">
+                                            <label>Ampliación</label>
+                                            <div class="seg" id="enh-scaleSeg">
+                                                <button type="button" data-scale="2">2×</button>
+                                                <button type="button" data-scale="4" class="active">4×</button>
+                                            </div>
+                                            <small class="help">El modelo trabaja a 4×; en 2× el resultado se reduce desde 4× (mismo tiempo, archivo más ligero).</small>
+                                        </div>
+
+                                        <div class="field">
+                                            <label>Intensidad de la IA <span class="val" id="enh-fidelityVal">100%</span></label>
+                                            <input type="range" id="enh-fidelityRange" min="0" max="100" step="5" value="100">
+                                            <small class="help">100 % = resultado puro de la IA. Bájalo para mezclar con un escalado convencional y preservar más fielmente logotipos, textos y contornos.</small>
+                                        </div>
+
+                                        <div class="field">
+                                            <label>Tamaño de bloque</label>
+                                            <div class="seg" id="enh-tileSeg">
+                                                <button type="button" data-tile="96">Bajo</button>
+                                                <button type="button" data-tile="160" class="active">Normal</button>
+                                                <button type="button" data-tile="256">Alto</button>
+                                            </div>
+                                            <small class="help">La imagen se procesa por bloques con solapamiento. Usa «Bajo» si tu equipo va justo de memoria.</small>
+                                        </div>
+
+                                        <div class="field">
+                                            <label>Formato de salida</label>
+                                            <select class="target-select" id="enh-outFormat">
+                                                <option value="image/png">PNG (sin pérdida)</option>
+                                                <option value="image/webp">WEBP</option>
+                                                <option value="image/jpeg">JPG</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="field" id="enh-qualityField" hidden>
+                                            <label>Calidad de exportación <span class="val" id="enh-qualityVal">92%</span></label>
+                                            <input type="range" id="enh-qualityRange" min="50" max="100" value="92">
+                                        </div>
+
+                                        <p class="out-info" id="enh-outInfo"></p>
+
+                                        <div class="actions">
+                                            <button class="btn btn-primary" id="enh-enhanceBtn" type="button" disabled>Mejorar imagen</button>
+                                            <button class="btn btn-danger-ghost" id="enh-cancelBtn" type="button" hidden>Cancelar</button>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- progreso -->
+                                <div class="card progress-card" id="enh-progressCard" hidden>
+                                    <div class="card-head">
+                                        <h3 id="enh-statusTitle">Procesando…</h3>
+                                        <span class="meta-line" id="enh-progressMeta"></span>
+                                    </div>
+                                    <div class="bar" id="enh-barWrap"><i id="enh-barFill" style="width:0%"></i></div>
+                                    <p class="meta-line" id="enh-statusText"></p>
+                                </div>
+
+                                <!-- resultado -->
+                                <div class="result" id="enh-resultSection" hidden>
+                                    <div class="section-head">
+                                        <div>
+                                            <h2>Antes / después</h2>
+                                            <p>Desliza para comparar. Usa los botones o Ctrl + rueda para ampliar y arrastra para moverte.</p>
+                                        </div>
+                                        <div class="zoom-controls" role="group" aria-label="Zoom">
+                                            <button class="icon-btn" id="enh-zoomOut" type="button" aria-label="Alejar">−</button>
+                                            <span class="zoom-val" id="enh-zoomVal">100%</span>
+                                            <button class="icon-btn" id="enh-zoomIn" type="button" aria-label="Acercar">+</button>
+                                            <button class="btn btn-sm btn-ghost" id="enh-zoomReset" type="button">Ajustar</button>
+                                            <button class="btn btn-sm btn-ghost" id="enh-fsBtn" type="button">Pantalla completa</button>
+                                        </div>
+                                    </div>
+
+                                    <div class="viewer" id="enh-viewer">
+                                        <div class="stage" id="enh-stage">
+                                            <img class="layer" id="enh-afterImg" alt="Imagen mejorada" draggable="false">
+                                            <img class="layer before" id="enh-beforeImg" alt="Imagen original" draggable="false">
+                                            <div class="vhandle" id="enh-vhandle"><div class="grip">⇔</div></div>
+                                        </div>
+                                        <span class="compare-tag left" id="enh-tagBefore"></span>
+                                        <span class="compare-tag right" id="enh-tagAfter"></span>
+                                    </div>
+
+                                    <div class="stats">
+                                        <div class="stat-card"><div class="n" id="enh-rOrig">—</div><div class="l">Original</div></div>
+                                        <div class="stat-card"><div class="n" id="enh-rOut">—</div><div class="l">Resultado</div></div>
+                                        <div class="stat-card accent"><div class="n" id="enh-rTime">—</div><div class="l">Tiempo de proceso</div></div>
+                                    </div>
+
+                                    <div class="actions result-actions">
+                                        <button class="btn btn-primary" id="enh-downloadBtn" type="button">Descargar imagen mejorada</button>
+                                        <span class="meta-line" id="enh-downloadInfo"></span>
+                                    </div>
+                                </div>
+                            </section>
+
+                            <!-- guía -->
+                            <div class="guide-section">
+                                <div class="section-head">
+                                    <div>
+                                        <h2>Qué esperar</h2>
+                                        <p>La IA reconstruye detalle plausible; no puede recuperar información que la imagen no contiene.</p>
+                                    </div>
+                                </div>
+                                <div class="guide-grid">
+                                    <div class="guide-card">
+                                        <span class="tag" style="background:linear-gradient(140deg,var(--violet-deep),var(--violet));">Funciona bien</span>
+                                        <p>Fotos con ruido, pixelación leve, artefactos JPG y miniaturas que quieres ampliar para web o impresión.</p>
+                                    </div>
+                                    <div class="guide-card">
+                                        <span class="tag" style="background:linear-gradient(140deg,var(--violet),var(--conv));">Con cuidado</span>
+                                        <p>Productos, logotipos y textos: la IA puede suavizar o «reinventar» trazos finos. Baja la intensidad para conservar más del original.</p>
+                                    </div>
+                                    <div class="guide-card">
+                                        <span class="tag" style="background:linear-gradient(140deg,var(--conv),#FFB1CC);">Desenfoque</span>
+                                        <p>Ayuda con desenfoque leve o pérdida de nitidez por reescalado. No deshace un desenfoque fuerte de movimiento o enfoque.</p>
+                                    </div>
+                                    <div class="guide-card">
+                                        <span class="tag" style="background:linear-gradient(140deg,#C9A7FF,var(--violet));">Rendimiento</span>
+                                        <p>Corre en la CPU de tu equipo (WebAssembly). Imágenes grandes tardan minutos; mira el tiempo restante estimado mientras avanza.</p>
+                                    </div>
+                                </div>
+                            </div>
+
+
+            </div>
         </div>
 
         <div class="toast-wrap" id="toastWrap"></div>
